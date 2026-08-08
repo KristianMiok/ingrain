@@ -54,6 +54,21 @@ real, not artefacts -- reported radii cluster at publisher conventions
 (301 m, 1 km, 5 km, ...), and the classification thresholds cross those
 mass points as the grain sweeps.
 
+The audit can also be cut by publisher:
+
+```r
+bd <- by_dataset(a)
+ingrain_u(a, seed = 1)
+autoplot(bd)
+```
+
+![](man/figures/README-datasets.png)
+
+Most datasets sit almost entirely in one state -- publishers occupy
+regimes, not a gradient -- and `ingrain_u()` quantifies how much the
+dataset determines a record's state: the uncertainty coefficient of the
+state given the dataset, read against a permutation null.
+
 ## Bundled data
 
 `crayfish` is a fixed random sample of 5,000 crayfish occurrence

@@ -7,8 +7,14 @@
 * `ingrain_profile()`: the partition across a sweep of grains, with an
   optional marked grain, sharing one internal classifier with `ingrain()`
   so the two views cannot diverge.
+* `by_dataset()`: the partition per publishing dataset, with a
+  diagnostic share of GBIF-documented geocoder default radii.
+* `ingrain_u()`: uncertainty coefficient (Theil's U) of the state given
+  the dataset, with a label-permutation null; collapses exactly to the
+  binary estimator used in the analyses behind the package.
 * Bundled `crayfish` demonstration sample: 5,000 CC0/CC-BY records drawn
   with a fixed seed from GBIF occurrence download 10.15468/dl.99ezk2,
   frozen by regression tests.
-* Visual layer: partition-bar and profile `autoplot()` methods,
-  `theme_ingrain()`, and the colour-vision-safe `ingrain_palette()`.
+* Visual layer: partition-bar, profile and per-dataset `autoplot()`
+  methods, `theme_ingrain()`, and the colour-vision-safe
+  `ingrain_palette()`.

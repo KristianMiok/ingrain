@@ -161,3 +161,68 @@ plot.ingrain_profile <- function(x, ...) {
   print(autoplot(x, ...))
   invisible(x)
 }
+
+utils::globalVariables("dataset")
+
+#' Plot the per-dataset partition as stacked bars
+#'
+#' One horizontal stacked bar per dataset, largest datasets on top,
+#' showing how the four-state partition differs across publishers.
+#' Rows sitting almost entirely in one colour are datasets in a pure
+#' regime.
+#'
+#' @param object An `ingrain_datasets` object from [by_dataset()].
+#' @param max_datasets Show at most this many datasets, taken from the
+#'   top of the (size-sorted) table.
+#' @param ... Ignored.
+#' @return A ggplot object.
+#' @examples
+#' autoplot(by_dataset(ingrain(crayfish, grain = 1000)))
+#' @export
+autoplot.ingrain_datasets <- function(object, max_datasets = 25, ...) {
+  if (!is.numeric(max_datasets) || length(max_datasets) != 1L ||
+      !is.finite(max_datasets) || max_datasets < 1)
+    stop("`max_datasets` must be a single number >= 1.", call. = FALSE)
+  grain <- attr(object, "grain")
+  n_total <- attr(object, "n_datasets_total")
+  d <- utils::head(as.data.frame(object), max_datasets)
+
+  states <- c("inert", "marginal", "actionable", "unreported")
+  long <- do.call(rbind, lapply(states, function(s)
+    data.frame(dataset = d$dataset, state = s, share = d[[s]],
+               stringsAsFactors = FALSE)))
+  long$state <- factor(long$state, levels = states)
+  long$dataset <- factor(long$dataset, levels = rev(d$dataset))
+  ylab <- stats::setNames(
+    sprintf("%s\u2026  %s", substr(d$dataset, 1, 8),
+            format(d$n, big.mark = ",")),
+    d$dataset)
+
+  ggplot2::ggplot(long,
+                  ggplot2::aes(x = share, y = dataset, fill = state)) +
+    ggplot2::geom_col(position = ggplot2::position_stack(reverse = TRUE),
+                      width = 0.72) +
+    ggplot2::scale_fill_manual(values = ingrain_palette(), drop = FALSE) +
+    ggplot2::scale_x_continuous(
+      labels = function(v) paste0(round(100 * v), "%"),
+      expand = ggplot2::expansion(mult = c(0, 0.01))) +
+    ggplot2::scale_y_discrete(labels = ylab) +
+    ggplot2::labs(
+      title = "the partition by publishing dataset",
+      subtitle = sprintf("%d largest of %s datasets, grain %s",
+                         nrow(d), format(n_total, big.mark = ","),
+                         fmt_metres(grain)),
+      x = NULL, y = NULL,
+      caption = sprintf("n = %s records",
+                        format(attr(object, "n_records"),
+                               big.mark = ","))) +
+    theme_ingrain() +
+    ggplot2::theme(axis.text.y = ggplot2::element_text(size = 7.5),
+                   panel.grid.major.y = ggplot2::element_blank())
+}
+
+#' @export
+plot.ingrain_datasets <- function(x, ...) {
+  print(autoplot(x, ...))
+  invisible(x)
+}
