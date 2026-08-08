@@ -3,12 +3,12 @@
 \docType{package}
 \name{ingrain-package}
 \alias{ingrain-package}
-\title{ingrain: Resolution-Relative Usability Audit for Occurrence Records}
+\title{ingrain: Resolution-Relative Audit of Positional Uncertainty for Occurrence Records}
 \description{
 Classifies species occurrence records into four states relative to a chosen analysis grain (the raster cell edge length): 'inert' (positional uncertainty at or below half the grain, so uncertainty-aware corrections cannot act), 'marginal' (uncertainty between half the grain and three times the grain), 'actionable' (uncertainty above three times the grain, where the choice of correction method has consequences), and 'unreported' (no uncertainty radius given, so no correction can act). Provides per-dataset summaries and visualisations for auditing 'GBIF' downloads before species distribution modelling.
 }
 \author{
-\strong{Maintainer}: Kristian Miok \email{kristian.miok@todo.invalid} (\href{https://orcid.org/ORCID_TODO}{ORCID})
+\strong{Maintainer}: Kristian Miok \email{kristianmiok.personal@gmail.com} (\href{https://orcid.org/0009-0009-7380-9525}{ORCID})
 
 }
 \keyword{internal}
