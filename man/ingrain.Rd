@@ -2,7 +2,8 @@
 % Please edit documentation in R/ingrain.R
 \name{ingrain}
 \alias{ingrain}
-\title{Classify occurrence records by usability relative to an analysis grain}
+\title{Classify occurrence records by positional uncertainty relative to an
+analysis grain}
 \usage{
 ingrain(occ, grain, uncertainty = "coordinateUncertaintyInMeters")
 }
@@ -18,27 +19,40 @@ radius in metres. Defaults to the Darwin Core term
 }
 \value{
 \code{occ} with an added factor column \code{.state} (levels \code{"inert"},
-\code{"usable"}, \code{"unreported"}), returned with class \code{"ingrain_audit"}.
-The grain and the name of the uncertainty column are stored as
-attributes. \code{print()} shows the three-state summary rather than the
-full data; use \code{summary()} for the counts as a data.frame.
+\code{"marginal"}, \code{"actionable"}, \code{"unreported"}), returned with class
+\code{"ingrain_audit"}. The grain and the name of the uncertainty column
+are stored as attributes. \code{print()} shows the four-state summary
+rather than the full data; use \code{summary()} for the counts as a
+data.frame.
 }
 \description{
-\code{ingrain()} partitions occurrence records into three states relative to a
-chosen analysis grain (the cell edge length of the intended raster):
-records whose reported positional uncertainty is smaller than the grain
-(\code{"inert"} -- an uncertainty-aware correction cannot change the model at
-this resolution), records whose uncertainty is reported and at least as
-large as the grain (\code{"usable"} -- the choice of correction has
-consequences), and records reporting no uncertainty radius at all
-(\code{"unreported"} -- no correction can act, and the radius cannot be
-recovered from the coordinates).
+\code{ingrain()} partitions occurrence records into four states relative to a
+chosen analysis grain \eqn{R} (the cell edge length of the intended
+raster, in metres), based on the reported positional uncertainty radius
+\eqn{r}:
 }
 \details{
-The classification rule is strict at the boundary: \code{inert} if
-\code{r < grain}, \code{usable} if \code{r >= grain}, \code{unreported} if \code{r} is \code{NA}
-(\code{NaN} counts as \code{NA}). A record whose radius exactly equals the grain
-is therefore \code{usable}.
+\itemize{
+\item \code{"inert"} -- \eqn{r \le R/2}. The uncertainty disc's diameter does not
+exceed one cell edge, so an uncertainty-aware correction cannot
+meaningfully act: the covariate is effectively constant over the region
+the record could occupy.
+\item \code{"marginal"} -- \eqn{R/2 < r \le 3R}. The boundary band, where whether
+the positional error matters depends on where the record falls relative
+to cell boundaries and on local covariate variation.
+\item \code{"actionable"} -- \eqn{r > 3R}. The uncertainty region spans many
+cells; corrections (threshold filtering, near-geographic and
+near-environmental point methods, change of support) have room to act,
+and the choice among them has consequences.
+\item \code{"unreported"} -- \eqn{r} is \code{NA}. No correction can act, and the
+radius cannot be recovered from the coordinates themselves.
+}
+
+Boundary handling is inclusive from below and mirrors, bit for bit, the
+cumulative-threshold construction used to compute the published
+partition (counts of records with \eqn{r \le u} at \eqn{u = R/2} and
+\eqn{u = 3R}, then differences): a radius exactly at \eqn{R/2} is
+\code{inert}, and exactly at \eqn{3R} is \code{marginal}. \code{NaN} counts as \code{NA}.
 
 The \code{"inert"} state operationalises an observation made in passing by
 Hefley et al. (2017): a change-of-support correction cannot act where
@@ -47,11 +61,15 @@ the covariate is constant within a raster cell.
 Negative or infinite radii raise an error; such values are data defects
 and should be screened upstream (e.g. with CoordinateCleaner or bdc).
 \code{ingrain()} deliberately performs no cleaning: it classifies what a
-correction or filter could do to your data at your resolution.
+correction or filter could do to your data at your resolution. The
+analysis pipeline behind the published numbers additionally capped
+reported radii at 1e7 m at the query stage; radii above that are
+practically nonexistent in downloads and are classified here like any
+other finite radius.
 }
 \examples{
 occ <- data.frame(
-  coordinateUncertaintyInMeters = c(5, 30, 250, 1500, NA, NA)
+  coordinateUncertaintyInMeters = c(5, 500, 750, 5000, NA)
 )
 a <- ingrain(occ, grain = 1000)
 a
