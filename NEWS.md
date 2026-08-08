@@ -1,4 +1,4 @@
-# ingrain (development version)
+# ingrain 0.0.0.9000
 
-* Core classifier `ingrain()`: three-state resolution-relative partition
-  (inert / usable / unreported) with `print()` and `summary()` methods.
+* Core classifier `ingrain()`: resolution-relative partition of occurrence
+  records with `print()` and `summary()` methods.

@@ -1,1 +1,3 @@
 ^LICENSE\.md$
+^\.idea$
+^\.DS_Store$
