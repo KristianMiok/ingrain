@@ -39,4 +39,14 @@ only from records published under CC0 1.0 or CC BY 4.0; CC BY-NC
 records are excluded. This is a demonstration dataset: do not use it
 for ecological inference.
 }
+\details{
+Record licences are assigned by the publishing dataset, so the licence
+filter used to build this sample is, in effect, a publisher filter.
+Because the partition of records across states is itself a publisher
+property, shares computed on this sample differ from shares computed
+on the unfiltered download (the sample has, for instance, a higher
+inert share at a 1 km grain). The bundled data exist to demonstrate
+the package mechanics on real records, not to reproduce any published
+quantity.
+}
 \keyword{datasets}
