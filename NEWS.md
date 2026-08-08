@@ -12,6 +12,8 @@
 * `ingrain_u()`: uncertainty coefficient (Theil's U) of the state given
   the dataset, with a label-permutation null; collapses exactly to the
   binary estimator used in the analyses behind the package.
+* Vignette "From a GBIF download to a defensible dataset": the full
+  audit workflow on the bundled sample, with guidance per state.
 * Bundled `crayfish` demonstration sample: 5,000 CC0/CC-BY records drawn
   with a fixed seed from GBIF occurrence download 10.15468/dl.99ezk2,
   frozen by regression tests.
