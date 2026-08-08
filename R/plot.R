@@ -1,9 +1,16 @@
 utils::globalVariables(c("state", "share", "lab", "mid", "grain"))
 
 fmt_metres <- function(x) {
-  ifelse(x >= 1000,
-         paste0(format(x / 1000, trim = TRUE, drop0trailing = TRUE), " km"),
-         paste0(format(x, trim = TRUE, drop0trailing = TRUE), " m"))
+  fmt1 <- function(v) {
+    if (is.na(v)) return(NA_character_)
+    if (v >= 1000)
+      paste0(format(v / 1000, trim = TRUE, scientific = FALSE,
+                    drop0trailing = TRUE), " km")
+    else
+      paste0(format(v, trim = TRUE, scientific = FALSE,
+                    drop0trailing = TRUE), " m")
+  }
+  vapply(x, fmt1, character(1))
 }
 
 #' ingrain state palette
@@ -141,7 +148,8 @@ autoplot.ingrain_profile <- function(object, ...) {
       x = "analysis grain (cell edge, log scale)", y = NULL,
       caption = sprintf("n = %s records",
                         format(attr(object, "n"), big.mark = ","))) +
-    theme_ingrain()
+    theme_ingrain() +
+    ggplot2::theme(plot.margin = ggplot2::margin(8, 26, 6, 12))
   if (!is.null(mark))
     p <- p + ggplot2::geom_vline(xintercept = mark, linetype = 2,
                                  colour = "grey15", linewidth = 0.4)
