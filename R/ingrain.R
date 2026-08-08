@@ -1,3 +1,38 @@
+ingrain_radii <- function(occ, uncertainty) {
+  if (!is.data.frame(occ))
+    stop("`occ` must be a data.frame.", call. = FALSE)
+  if (!is.character(uncertainty) || length(uncertainty) != 1L)
+    stop("`uncertainty` must be a single column name.", call. = FALSE)
+  if (!uncertainty %in% names(occ))
+    stop(sprintf("Column `%s` not found in `occ`.", uncertainty),
+         call. = FALSE)
+  r <- occ[[uncertainty]]
+  if (!is.numeric(r))
+    stop(sprintf("Column `%s` must be numeric (metres).", uncertainty),
+         call. = FALSE)
+  bad <- !is.na(r) & (r < 0 | is.infinite(r))
+  if (any(bad))
+    stop(sprintf(paste0(
+      "%d record(s) have negative or infinite uncertainty radii; ",
+      "screen these upstream (e.g. CoordinateCleaner, bdc)."), sum(bad)),
+      call. = FALSE)
+  r
+}
+
+ingrain_states <- function(r, grain) {
+  s <- cut(r, breaks = c(-Inf, grain / 2, 3 * grain, Inf),
+           labels = c("inert", "marginal", "actionable"), right = TRUE)
+  s <- as.character(s)
+  s[is.na(r)] <- "unreported"
+  factor(s, levels = c("inert", "marginal", "actionable", "unreported"))
+}
+
+check_grain_scalar <- function(grain) {
+  if (!is.numeric(grain) || length(grain) != 1L ||
+      !is.finite(grain) || grain <= 0)
+    stop("`grain` must be a single positive number (metres).", call. = FALSE)
+}
+
 #' Classify occurrence records by positional uncertainty relative to an
 #' analysis grain
 #'
@@ -41,11 +76,7 @@
 #' Negative or infinite radii raise an error; such values are data defects
 #' and should be screened upstream (e.g. with CoordinateCleaner or bdc).
 #' `ingrain()` deliberately performs no cleaning: it classifies what a
-#' correction or filter could do to your data at your resolution. The
-#' analysis pipeline behind the published numbers additionally capped
-#' reported radii at 1e7 m at the query stage; radii above that are
-#' practically nonexistent in downloads and are classified here like any
-#' other finite radius.
+#' correction or filter could do to your data at your resolution.
 #'
 #' @return `occ` with an added factor column `.state` (levels `"inert"`,
 #'   `"marginal"`, `"actionable"`, `"unreported"`), returned with class
@@ -61,45 +92,19 @@
 #' \doi{10.1111/2041-210X.12793}
 #'
 #' @examples
-#' occ <- data.frame(
-#'   coordinateUncertaintyInMeters = c(5, 500, 750, 5000, NA)
-#' )
-#' a <- ingrain(occ, grain = 1000)
+#' a <- ingrain(crayfish, grain = 1000)
 #' a
 #' summary(a)
+#' @seealso [ingrain_profile()] for the partition across a sweep of grains.
 #' @export
 ingrain <- function(occ, grain,
                     uncertainty = "coordinateUncertaintyInMeters") {
-  if (!is.data.frame(occ))
-    stop("`occ` must be a data.frame.", call. = FALSE)
-  if (!is.numeric(grain) || length(grain) != 1L ||
-      !is.finite(grain) || grain <= 0)
-    stop("`grain` must be a single positive number (metres).", call. = FALSE)
-  if (!is.character(uncertainty) || length(uncertainty) != 1L)
-    stop("`uncertainty` must be a single column name.", call. = FALSE)
-  if (!uncertainty %in% names(occ))
-    stop(sprintf("Column `%s` not found in `occ`.", uncertainty),
-         call. = FALSE)
-  if (".state" %in% names(occ))
+  check_grain_scalar(grain)
+  if (is.data.frame(occ) && ".state" %in% names(occ))
     stop("`occ` already has a `.state` column; rename it before auditing.",
          call. = FALSE)
-
-  r <- occ[[uncertainty]]
-  if (!is.numeric(r))
-    stop(sprintf("Column `%s` must be numeric (metres).", uncertainty),
-         call. = FALSE)
-  bad <- !is.na(r) & (r < 0 | is.infinite(r))
-  if (any(bad))
-    stop(sprintf(paste0(
-      "%d record(s) have negative or infinite uncertainty radii; ",
-      "screen these upstream (e.g. CoordinateCleaner, bdc)."), sum(bad)),
-      call. = FALSE)
-
-  state <- ifelse(is.na(r), "unreported",
-           ifelse(r <= grain / 2, "inert",
-           ifelse(r <= 3 * grain, "marginal", "actionable")))
-  occ$.state <- factor(state,
-    levels = c("inert", "marginal", "actionable", "unreported"))
+  r <- ingrain_radii(occ, uncertainty)
+  occ$.state <- ingrain_states(r, grain)
   attr(occ, "grain") <- grain
   attr(occ, "uncertainty_col") <- uncertainty
   class(occ) <- c("ingrain_audit", class(occ))

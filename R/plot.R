@@ -1,4 +1,10 @@
-utils::globalVariables(c("state", "share", "lab", "mid"))
+utils::globalVariables(c("state", "share", "lab", "mid", "grain"))
+
+fmt_metres <- function(x) {
+  ifelse(x >= 1000,
+         paste0(format(x / 1000, trim = TRUE, drop0trailing = TRUE), " km"),
+         paste0(format(x, trim = TRUE, drop0trailing = TRUE), " m"))
+}
 
 #' ingrain state palette
 #'
@@ -28,15 +34,13 @@ ingrain_palette <- function() {
 theme_ingrain <- function(base_size = 12) {
   ggplot2::theme_minimal(base_size = base_size) +
     ggplot2::theme(
-      panel.grid.minor   = ggplot2::element_blank(),
-      panel.grid.major.y = ggplot2::element_blank(),
-      legend.position    = "bottom",
-      legend.title       = ggplot2::element_blank(),
-      plot.title         = ggplot2::element_text(face = "bold"),
-      plot.subtitle      = ggplot2::element_text(colour = "grey35"),
-      plot.caption       = ggplot2::element_text(colour = "grey45"),
-      axis.title.y       = ggplot2::element_blank(),
-      axis.text.y        = ggplot2::element_blank()
+      panel.grid.minor = ggplot2::element_blank(),
+      legend.position  = "bottom",
+      legend.title     = ggplot2::element_blank(),
+      plot.title       = ggplot2::element_text(face = "bold"),
+      plot.subtitle    = ggplot2::element_text(colour = "grey35"),
+      plot.caption     = ggplot2::element_text(colour = "grey45"),
+      plot.margin      = ggplot2::margin(8, 14, 6, 12)
     )
 }
 
@@ -47,9 +51,9 @@ ggplot2::autoplot
 #' Plot an ingrain audit as a single partition bar
 #'
 #' Draws the four-state partition as one horizontal stacked bar, ordered
-#' inert, marginal, actionable, unreported from left to right, with the
-#' exact shares in the subtitle and in-bar labels on segments wide
-#' enough to carry them.
+#' inert, marginal, actionable, unreported from left to right. The legend
+#' carries the exact share of every state; segments wide enough to hold a
+#' label repeat theirs in the bar.
 #'
 #' @param object An `ingrain_audit` object from [ingrain()].
 #' @param ... Ignored.
@@ -72,23 +76,80 @@ autoplot.ingrain_audit <- function(object, ...) {
       data = s[s$share >= 0.06, , drop = FALSE],
       ggplot2::aes(x = mid, label = lab),
       colour = "white", fontface = "bold", size = 3.4) +
-    ggplot2::scale_fill_manual(values = ingrain_palette(), drop = FALSE) +
+    ggplot2::scale_fill_manual(
+      values = ingrain_palette(), drop = FALSE,
+      labels = sprintf("%s  %s", as.character(s$state), s$lab)) +
     ggplot2::scale_x_continuous(
       limits = c(0, 1),
       labels = function(v) paste0(round(100 * v), "%"),
       expand = ggplot2::expansion(mult = c(0, 0.01))) +
     ggplot2::labs(
-      title = sprintf("ingrain audit at a %s m grain",
-                      format(grain, big.mark = ",")),
-      subtitle = paste(paste(s$state, s$lab), collapse = "   \u00b7   "),
-      x = NULL,
+      title = sprintf("ingrain audit at a %s grain", fmt_metres(grain)),
+      x = NULL, y = NULL,
       caption = sprintf("n = %s records",
                         format(nrow(object), big.mark = ","))) +
-    theme_ingrain()
+    theme_ingrain() +
+    ggplot2::theme(panel.grid.major.y = ggplot2::element_blank(),
+                   axis.text.y = ggplot2::element_blank())
 }
 
 #' @export
 plot.ingrain_audit <- function(x, ...) {
+  print(autoplot(x, ...))
+  invisible(x)
+}
+
+#' Plot an ingrain profile as stacked shares across grains
+#'
+#' The signature figure of the package: shares of the four states as a
+#' function of analysis grain, on a log axis. The `unreported` band is
+#' flat by construction -- the portion of the data no resolution can
+#' touch. If the profile carries a `mark`, a reference line is drawn at
+#' that grain and the exact shares there appear in the subtitle.
+#'
+#' @param object An `ingrain_profile` object from [ingrain_profile()].
+#' @param ... Ignored.
+#' @return A ggplot object.
+#' @examples
+#' autoplot(ingrain_profile(crayfish, mark = 1000))
+#' @export
+autoplot.ingrain_profile <- function(object, ...) {
+  mark <- attr(object, "mark")
+  subtitle <- NULL
+  if (!is.null(mark)) {
+    at <- object[object$grain == mark, ]
+    subtitle <- sprintf("at %s: %s", fmt_metres(mark),
+                        paste(sprintf("%s %.1f%%", at$state, 100 * at$share),
+                              collapse = "  \u00b7  "))
+  }
+  brk <- c(10, 100, 1000, 10000, 100000)
+  brk <- brk[brk >= min(object$grain) & brk <= max(object$grain)]
+
+  p <- ggplot2::ggplot(object,
+                       ggplot2::aes(x = grain, y = share, fill = state)) +
+    ggplot2::geom_area(position = ggplot2::position_stack(reverse = TRUE),
+                       colour = "white", linewidth = 0.25) +
+    ggplot2::scale_fill_manual(values = ingrain_palette(), drop = FALSE) +
+    ggplot2::scale_x_log10(breaks = brk, labels = fmt_metres,
+                           expand = c(0, 0)) +
+    ggplot2::scale_y_continuous(
+      labels = function(v) paste0(round(100 * v), "%"),
+      expand = c(0, 0)) +
+    ggplot2::labs(
+      title = "ingrain profile: the partition across analysis grains",
+      subtitle = subtitle,
+      x = "analysis grain (cell edge, log scale)", y = NULL,
+      caption = sprintf("n = %s records",
+                        format(attr(object, "n"), big.mark = ","))) +
+    theme_ingrain()
+  if (!is.null(mark))
+    p <- p + ggplot2::geom_vline(xintercept = mark, linetype = 2,
+                                 colour = "grey15", linewidth = 0.4)
+  p
+}
+
+#' @export
+plot.ingrain_profile <- function(x, ...) {
   print(autoplot(x, ...))
   invisible(x)
 }

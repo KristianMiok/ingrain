@@ -16,9 +16,9 @@ A ggplot object.
 }
 \description{
 Draws the four-state partition as one horizontal stacked bar, ordered
-inert, marginal, actionable, unreported from left to right, with the
-exact shares in the subtitle and in-bar labels on segments wide
-enough to carry them.
+inert, marginal, actionable, unreported from left to right. The legend
+carries the exact share of every state; segments wide enough to hold a
+label repeat theirs in the bar.
 }
 \examples{
 a <- ingrain(crayfish, grain = 1000)

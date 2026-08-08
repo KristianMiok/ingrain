@@ -61,17 +61,10 @@ the covariate is constant within a raster cell.
 Negative or infinite radii raise an error; such values are data defects
 and should be screened upstream (e.g. with CoordinateCleaner or bdc).
 \code{ingrain()} deliberately performs no cleaning: it classifies what a
-correction or filter could do to your data at your resolution. The
-analysis pipeline behind the published numbers additionally capped
-reported radii at 1e7 m at the query stage; radii above that are
-practically nonexistent in downloads and are classified here like any
-other finite radius.
+correction or filter could do to your data at your resolution.
 }
 \examples{
-occ <- data.frame(
-  coordinateUncertaintyInMeters = c(5, 500, 750, 5000, NA)
-)
-a <- ingrain(occ, grain = 1000)
+a <- ingrain(crayfish, grain = 1000)
 a
 summary(a)
 }
@@ -80,4 +73,7 @@ Hefley, T.J., Brost, B.M. & Hooten, M.B. (2017) Bias correction of
 bounded location errors in presence-only data.
 \emph{Methods in Ecology and Evolution}, 8, 1566--1573.
 \doi{10.1111/2041-210X.12793}
+}
+\seealso{
+\code{\link[=ingrain_profile]{ingrain_profile()}} for the partition across a sweep of grains.
 }
