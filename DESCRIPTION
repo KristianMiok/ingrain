@@ -1,0 +1,20 @@
+Package: ingrain
+Title: Resolution-Relative Usability Audit for Occurrence Records
+Version: 0.0.0.9000
+Authors@R: 
+    person("Kristian", "Miok", , "kristian.miok@todo.invalid", role = c("aut", "cre"),
+           comment = c(ORCID = "ORCID_TODO"))
+Description: Classifies species occurrence records into three states
+    relative to a chosen analysis grain: 'inert' (positional uncertainty
+    smaller than the grain, so corrections cannot act), 'usable'
+    (uncertainty reported and exceeding the grain, so corrections change
+    the model), and 'unreported' (no uncertainty radius given). Provides
+    per-dataset summaries and visualisations for auditing 'GBIF' downloads
+    before species distribution modelling.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
