@@ -77,11 +77,15 @@ autoplot(p)
 ![](ingrain_files/figure-html/profile-1.png)
 
 As the grain coarsens, records migrate from actionable into inert; the
-treatment debate concerns a shrinking share of the data. The grey band
-does not move: no choice of resolution touches the unreported share. The
-steps in the coloured bands are real, not artefacts – reported radii
-cluster at publisher conventions (301 m, 1 km, 5 km, …), and the
-classification thresholds cross those mass points as the grain sweeps.
+treatment debate concerns a shrinking share of the data – a statement
+about correctability, not harm: coarsening the grain does not by itself
+overcome positional error (Gábor et al. 2022); what shrinks is the share
+of records on which an uncertainty-aware treatment has room to act. The
+grey band does not move: no choice of resolution touches the unreported
+share. The steps in the coloured bands are real, not artefacts –
+reported radii cluster at publisher conventions (301 m, 1 km, 5 km, …),
+and the classification thresholds cross those mass points as the grain
+sweeps.
 
 ## Publishers, not organisms
 
@@ -175,13 +179,21 @@ for your own numbers.
 Feng, X., et al. (2023) GridDER: Grid Detection and Evaluation in R.
 *Ecological Informatics*.
 
+Gábor, L., et al. (2022) Positional errors in species distribution
+modelling are not overcome by the coarser grains of analysis. *Methods
+in Ecology and Evolution*, 13.
+
 Hefley, T.J., Brost, B.M. & Hooten, M.B. (2017) Bias correction of
 bounded location errors in presence-only data. *Methods in Ecology and
 Evolution*, 8, 1566–1573.
 
-Marcer, A., et al. (2022) Quality issues in georeferencing: from
+Marcer, A., et al. (2021) Quality issues in georeferencing: from
 physical collections to digital data repositories for ecological
-research. *Ecography*, 2022, e06025.
+research. *Diversity and Distributions*, 27, 564–567.
+
+Marcer, A., et al. (2022) Uncertainty matters: ascertaining where
+specimens in natural history collections come from and its implications
+for predicting species distributions. *Ecography*, 2022, e06025.
 
 Moudrý, V., et al. (2024) Optimising occurrence data in species
 distribution models. *Ecography*, 2024, e07294.
