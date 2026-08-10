@@ -142,7 +142,10 @@ the audit, then whatever treatment the actionable share justifies.
 
 `crayfish` is drawn from GBIF occurrence download
 [doi:10.15468/dl.99ezk2](https://doi.org/10.15468/dl.99ezk2) and
-restricted to CC0/CC BY records so it can be redistributed. Because
+restricted to CC0/CC BY records so it can be redistributed; the
+sample is registered as GBIF derived dataset
+[doi:10.15468/dd.d9xgfc](https://doi.org/10.15468/dd.d9xgfc), which
+credits all 246 contributing datasets. Because
 record licences are set by the publishing dataset, that restriction is
 itself a publisher filter, and the shares above differ by construction
 from the unfiltered download. The sample demonstrates the mechanics;
