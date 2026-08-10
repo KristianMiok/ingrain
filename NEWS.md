@@ -1,3 +1,9 @@
+# ingrain 0.1.0.9000
+
+* Citation metadata for registering the bundled `crayfish` sample
+  as a GBIF derived dataset
+  (`data-raw/crayfish_derived_dataset_counts.csv`).
+
 # ingrain 0.1.0
 
 First complete release.
