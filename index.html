@@ -80,18 +80,24 @@
 <span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ingrain.html">ingrain</a></span><span class="op">(</span><span class="va">crayfish</span>, grain <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">a</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-bar.png"></p>
+<div class="float">
+<img src="reference/figures/README-bar.png" alt="Stacked bar of the four-state partition of the bundled sample at a 1 km grain"><div class="figcaption">Stacked bar of the four-state partition of the bundled sample at a 1 km grain</div>
+</div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ingrain_profile.html">ingrain_profile</a></span><span class="op">(</span><span class="va">crayfish</span>, mark <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-profile.png"></p>
+<div class="float">
+<img src="reference/figures/README-profile.png" alt="Shares of the four states across analysis grains from 10 m to 100 km; the unreported band stays flat"><div class="figcaption">Shares of the four states across analysis grains from 10 m to 100 km; the unreported band stays flat</div>
+</div>
 <p>The grey band is flat by construction: it is the share of the data that no choice of resolution can touch. The steps in the coloured bands are real, not artefacts – reported radii cluster at publisher conventions (301 m, 1 km, 5 km, …), and the classification thresholds cross those mass points as the grain sweeps.</p>
 <p>The audit can also be cut by publisher:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bd</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/by_dataset.html">by_dataset</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/ingrain_u.html">ingrain_u</a></span><span class="op">(</span><span class="va">a</span>, seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">bd</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-datasets.png"></p>
+<div class="float">
+<img src="reference/figures/README-datasets.png" alt="One stacked bar per publishing dataset, most sitting almost entirely in a single state"><div class="figcaption">One stacked bar per publishing dataset, most sitting almost entirely in a single state</div>
+</div>
 <p>Most datasets sit almost entirely in one state – publishers occupy regimes, not a gradient – and <code><a href="reference/ingrain_u.html">ingrain_u()</a></code> quantifies how much the dataset determines a record’s state: the uncertainty coefficient of the state given the dataset, read against a permutation null.</p>
 </div>
 <div class="section level2">

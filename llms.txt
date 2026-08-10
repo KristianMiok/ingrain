@@ -41,7 +41,11 @@ a
 autoplot(a)
 ```
 
-![](reference/figures/README-bar.png)
+![Stacked bar of the four-state partition of the bundled sample at a 1
+km grain](reference/figures/README-bar.png)
+
+Stacked bar of the four-state partition of the bundled sample at a 1 km
+grain
 
 ``` r
 
@@ -49,7 +53,11 @@ p <- ingrain_profile(crayfish, mark = 1000)
 autoplot(p)
 ```
 
-![](reference/figures/README-profile.png)
+![Shares of the four states across analysis grains from 10 m to 100 km;
+the unreported band stays flat](reference/figures/README-profile.png)
+
+Shares of the four states across analysis grains from 10 m to 100 km;
+the unreported band stays flat
 
 The grey band is flat by construction: it is the share of the data that
 no choice of resolution can touch. The steps in the coloured bands are
@@ -66,7 +74,11 @@ ingrain_u(a, seed = 1)
 autoplot(bd)
 ```
 
-![](reference/figures/README-datasets.png)
+![One stacked bar per publishing dataset, most sitting almost entirely
+in a single state](reference/figures/README-datasets.png)
+
+One stacked bar per publishing dataset, most sitting almost entirely in
+a single state
 
 Most datasets sit almost entirely in one state – publishers occupy
 regimes, not a gradient – and
