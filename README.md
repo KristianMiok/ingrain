@@ -1,4 +1,4 @@
-# ingrain
+# ingrain <img src="man/figures/logo.png" align="right" height="139" alt="ingrain hex logo" />
 
 [![R-CMD-check](https://github.com/KristianMiok/ingrain/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/KristianMiok/ingrain/actions/workflows/R-CMD-check.yaml)
 

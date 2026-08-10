@@ -1,6 +1,6 @@
 Package: ingrain
 Title: Resolution-Relative Audit of Positional Uncertainty for Occurrence Records
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Kristian", "Miok", , "kristianmiok.personal@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0009-7380-9525"))
