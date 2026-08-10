@@ -2,3 +2,5 @@
 .DS_Store
 tests/testthat/_problems/
 inst/doc
+docs
+docs/

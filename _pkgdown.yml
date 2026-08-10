@@ -1,0 +1,18 @@
+url: https://kristianmiok.github.io/ingrain
+template:
+  bootstrap: 5
+reference:
+- title: Audit
+  desc: Classify records and quantify who sets the partition.
+  contents: [ingrain, ingrain_profile, by_dataset, ingrain_u]
+- title: Visuals
+  contents:
+  - autoplot.ingrain_audit
+  - autoplot.ingrain_profile
+  - autoplot.ingrain_datasets
+  - theme_ingrain
+  - ingrain_palette
+- title: Data
+  contents: [crayfish]
+- title: Package
+  contents: [ingrain-package, reexports]
