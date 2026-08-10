@@ -62,6 +62,10 @@ GBIF.org (03 August 2026) GBIF Occurrence Download
 [doi:10.15468/dl.99ezk2](https://doi.org/10.15468/dl.99ezk2) .
 Per-record publishers are identified by `datasetKey`; the download DOI
 resolves to the full list of contributing datasets and their citations.
+The bundled sample is itself registered as GBIF derived dataset
+[doi:10.15468/dd.d9xgfc](https://doi.org/10.15468/dd.d9xgfc) (GBIF.org,
+10 August 2026), crediting all 246 contributing datasets and their
+record counts.
 
 ## Details
 

@@ -92,9 +92,11 @@ permutation null.
 `crayfish` is a fixed random sample of 5,000 crayfish occurrence
 records, drawn from the 507,980-record GBIF occurrence download
 [doi:10.15468/dl.99ezk2](https://doi.org/10.15468/dl.99ezk2) and
-restricted to CC0/CC BY records to permit redistribution. It exists to
-demonstrate the package mechanics; do not use it for ecological
-inference.
+restricted to CC0/CC BY records to permit redistribution. The sample is
+registered as GBIF derived dataset
+[doi:10.15468/dd.d9xgfc](https://doi.org/10.15468/dd.d9xgfc), which
+credits all 246 contributing datasets. It exists to demonstrate the
+package mechanics; do not use it for ecological inference.
 
 ## Status
 
