@@ -14,7 +14,7 @@ downloads before species distribution modelling.
 
 Useful links:
 
-- <https://kristianmiok.github.io/ingrain>
+- <https://kristianmiok.github.io/ingrain/>
 
 - <https://github.com/KristianMiok/ingrain>
 
