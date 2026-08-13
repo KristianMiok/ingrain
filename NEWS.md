@@ -1,12 +1,10 @@
-# ingrain 0.1.0.9000
+# ingrain 0.1.0
+
+First complete release.
 
 * The bundled `crayfish` sample is registered as GBIF derived dataset
   doi:10.15468/dd.d9xgfc, crediting all 246 contributing datasets;
   per-dataset counts in `data-raw/crayfish_derived_dataset_counts.csv`.
-
-# ingrain 0.1.0
-
-First complete release.
 
 * `ingrain()`: four-state resolution-relative partition of occurrence
   records (inert / marginal / actionable / unreported), boundary-exact

@@ -85,7 +85,10 @@ share of records on which an uncertainty-aware treatment has room to
 act. The grey band
 does not move: no choice of resolution touches the unreported share.
 The steps in the coloured bands are real, not artefacts -- reported
-radii cluster at publisher conventions (301 m, 1 km, 5 km, ...), and
+radii concentrate on a handful of mass points -- 15 m, 5 km, 500 m and
+100 m, plus two grid half-diagonals, 70.7 m (= 50*sqrt(2), half the
+diagonal of a 100-m grid square) and 3,535 m (= 2,500*sqrt(2), of a
+5-km square) -- and
 the classification thresholds cross those mass points as the grain
 sweeps.
 
@@ -130,7 +133,7 @@ organism.
 * **unreported** -- do not impute a radius from coordinate decimal
   places: decimals bound the uncertainty only from below, so they
   cannot supply the missing upper bound. For records with gridded
-  coordinates -- a substantial share of GBIF (Feng et al. 2023) --
+  coordinates -- a substantial share of GBIF (Feng et al. 2024) --
   GridDER can recover a grid-implied radius; for the rest, the missing
   radius is irreducible, and the honest options are to analyse with and
   without these records or to model reporting explicitly.
@@ -157,7 +160,8 @@ audit your own download for your own numbers.
 
 ## References
 
-Feng, X., et al. (2023) GridDER: Grid Detection and Evaluation in R.
+Feng, X., Rocha, T., Thammavong, H.T., Tulaiha, R., Chen, X., Xie, Y. &
+Park, D.S. (2024) GridDER: Grid Detection and Evaluation in R.
 *Ecological Informatics*.
 
 Gábor, L., et al. (2022) Positional errors in species distribution
