@@ -147,9 +147,11 @@ by itself overcome positional error (Gábor et al. 2022); what shrinks is
 the share of records on which an uncertainty-aware treatment has room to
 act. The grey band does not move: no choice of resolution touches the
 unreported share. The steps in the coloured bands are real, not
-artefacts – reported radii cluster at publisher conventions (301 m, 1
-km, 5 km, …), and the classification thresholds cross those mass points
-as the grain sweeps.</p>
+artefacts – reported radii concentrate on a handful of mass points – 15
+m, 5 km, 500 m and 100 m, plus two grid half-diagonals, 70.7 m (=
+50<em>sqrt(2), half the diagonal of a 100-m grid square) and 3,535 m (=
+2,500</em>sqrt(2), of a 5-km square) – and the classification thresholds
+cross those mass points as the grain sweeps.</p>
 </div>
 <div class="section level2">
 <h2 id="publishers-not-organisms">Publishers, not organisms<a class="anchor" aria-label="anchor" href="#publishers-not-organisms"></a>
@@ -212,7 +214,7 @@ al. 2017).</li>
 <strong>unreported</strong> – do not impute a radius from coordinate
 decimal places: decimals bound the uncertainty only from below, so they
 cannot supply the missing upper bound. For records with gridded
-coordinates – a substantial share of GBIF (Feng et al. 2023) – GridDER
+coordinates – a substantial share of GBIF (Feng et al. 2024) – GridDER
 can recover a grid-implied radius; for the rest, the missing radius is
 irreducible, and the honest options are to analyse with and without
 these records or to model reporting explicitly.</li>
@@ -241,7 +243,8 @@ for your own numbers.</p>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<p>Feng, X., et al. (2023) GridDER: Grid Detection and Evaluation in R.
+<p>Feng, X., Rocha, T., Thammavong, H.T., Tulaiha, R., Chen, X., Xie, Y.
+&amp; Park, D.S. (2024) GridDER: Grid Detection and Evaluation in R.
 <em>Ecological Informatics</em>.</p>
 <p>Gábor, L., et al. (2022) Positional errors in species distribution
 modelling are not overcome by the coarser grains of analysis.

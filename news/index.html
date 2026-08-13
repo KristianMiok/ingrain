@@ -33,26 +33,18 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.0.9000" id="ingrain-0109000">ingrain 0.1.0.9000<a class="anchor" aria-label="anchor" href="#ingrain-0109000"></a></h2>
-<ul><li>The bundled <code>crayfish</code> sample is registered as GBIF derived dataset <a href="doi:10.15468/dd.d9xgfc" class="uri">doi:10.15468/dd.d9xgfc</a>, crediting all 246 contributing datasets; per-dataset counts in <code>data-raw/crayfish_derived_dataset_counts.csv</code>.</li>
-</ul></div>
-    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="ingrain-010">ingrain 0.1.0<a class="anchor" aria-label="anchor" href="#ingrain-010"></a></h2>
 <p>First complete release.</p>
-<ul><li>
-<code><a href="../reference/ingrain.html">ingrain()</a></code>: four-state resolution-relative partition of occurrence records (inert / marginal / actionable / unreported), boundary-exact to the cumulative-threshold construction used in the analysis pipeline, with <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> methods.</li>
-<li>
-<code><a href="../reference/ingrain_profile.html">ingrain_profile()</a></code>: the partition across a sweep of analysis grains, with an optional marked grain, sharing one internal classifier with <code><a href="../reference/ingrain.html">ingrain()</a></code> so the two views cannot diverge.</li>
-<li>
-<code><a href="../reference/by_dataset.html">by_dataset()</a></code>: the partition per publishing dataset, with a diagnostic share of GBIF-documented geocoder default radii.</li>
-<li>
-<code><a href="../reference/ingrain_u.html">ingrain_u()</a></code>: uncertainty coefficient (Theil’s U) of the state given the dataset, with a label-permutation null; collapses exactly to the binary estimator used in the analyses behind the package.</li>
-<li>Vignette “From a GBIF download to a defensible dataset”: the full audit workflow, with guidance per state.</li>
-<li>Bundled <code>crayfish</code> demonstration sample: 5,000 CC0/CC-BY records drawn with a fixed seed from GBIF occurrence download 10.15468/dl.99ezk2, frozen by regression tests.</li>
-<li>Visual identity: partition-bar, profile and per-dataset <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code> methods, <code><a href="../reference/theme_ingrain.html">theme_ingrain()</a></code>, the colour-vision-safe <code><a href="../reference/ingrain_palette.html">ingrain_palette()</a></code>, hex logo, and the pkgdown site at <a href="https://kristianmiok.github.io/ingrain" class="uri">https://kristianmiok.github.io/ingrain</a>.</li>
+<ul><li><p>The bundled <code>crayfish</code> sample is registered as GBIF derived dataset <a href="doi:10.15468/dd.d9xgfc" class="uri">doi:10.15468/dd.d9xgfc</a>, crediting all 246 contributing datasets; per-dataset counts in <code>data-raw/crayfish_derived_dataset_counts.csv</code>.</p></li>
+<li><p><code><a href="../reference/ingrain.html">ingrain()</a></code>: four-state resolution-relative partition of occurrence records (inert / marginal / actionable / unreported), boundary-exact to the cumulative-threshold construction used in the analysis pipeline, with <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary()</a></code> methods.</p></li>
+<li><p><code><a href="../reference/ingrain_profile.html">ingrain_profile()</a></code>: the partition across a sweep of analysis grains, with an optional marked grain, sharing one internal classifier with <code><a href="../reference/ingrain.html">ingrain()</a></code> so the two views cannot diverge.</p></li>
+<li><p><code><a href="../reference/by_dataset.html">by_dataset()</a></code>: the partition per publishing dataset, with a diagnostic share of GBIF-documented geocoder default radii.</p></li>
+<li><p><code><a href="../reference/ingrain_u.html">ingrain_u()</a></code>: uncertainty coefficient (Theil’s U) of the state given the dataset, with a label-permutation null; collapses exactly to the binary estimator used in the analyses behind the package.</p></li>
+<li><p>Vignette “From a GBIF download to a defensible dataset”: the full audit workflow, with guidance per state.</p></li>
+<li><p>Bundled <code>crayfish</code> demonstration sample: 5,000 CC0/CC-BY records drawn with a fixed seed from GBIF occurrence download 10.15468/dl.99ezk2, frozen by regression tests.</p></li>
+<li><p>Visual identity: partition-bar, profile and per-dataset <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code> methods, <code><a href="../reference/theme_ingrain.html">theme_ingrain()</a></code>, the colour-vision-safe <code><a href="../reference/ingrain_palette.html">ingrain_palette()</a></code>, hex logo, and the pkgdown site at <a href="https://kristianmiok.github.io/ingrain" class="uri">https://kristianmiok.github.io/ingrain</a>.</p></li>
 </ul></div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
-    </nav></aside></div>
+  </main></div>
 
 
     <footer><div class="pkgdown-footer-left">
