@@ -20,5 +20,5 @@ Depends:
 Imports: 
     ggplot2
 VignetteBuilder: knitr
-URL: https://kristianmiok.github.io/ingrain, https://github.com/KristianMiok/ingrain
+URL: https://kristianmiok.github.io/ingrain/, https://github.com/KristianMiok/ingrain
 BugReports: https://github.com/KristianMiok/ingrain/issues

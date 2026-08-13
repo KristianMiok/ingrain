@@ -12,7 +12,7 @@ Classifies species occurrence records into four states relative to a chosen anal
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://kristianmiok.github.io/ingrain}
+  \item \url{https://kristianmiok.github.io/ingrain/}
   \item \url{https://github.com/KristianMiok/ingrain}
   \item Report bugs at \url{https://github.com/KristianMiok/ingrain/issues}
 }
