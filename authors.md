@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/KristianMiok/ingrain/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/KristianMiok/ingrain/blob/v0.1.0/DESCRIPTION)
 
 Miok K (2026). *ingrain: Resolution-Relative Audit of Positional
 Uncertainty for Occurrence Records*. R package version 0.1.0,
