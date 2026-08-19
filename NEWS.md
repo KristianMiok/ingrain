@@ -26,4 +26,4 @@ First complete release.
 * Visual identity: partition-bar, profile and per-dataset `autoplot()`
   methods, `theme_ingrain()`, the colour-vision-safe
   `ingrain_palette()`, hex logo, and the pkgdown site at
-  https://kristianmiok.github.io/ingrain.
+  https://anonymous.github.io/ingrain.

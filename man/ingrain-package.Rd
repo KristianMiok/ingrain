@@ -12,14 +12,14 @@ Classifies species occurrence records into four states relative to a chosen anal
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://kristianmiok.github.io/ingrain/}
-  \item \url{https://github.com/KristianMiok/ingrain}
-  \item Report bugs at \url{https://github.com/KristianMiok/ingrain/issues}
+  \item \url{https://anonymous.github.io/ingrain/}
+  \item \url{https://github.com/anonymous/ingrain}
+  \item Report bugs at \url{https://github.com/anonymous/ingrain/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Kristian Miok \email{kristianmiok.personal@gmail.com} (\href{https://orcid.org/0009-0009-7380-9525}{ORCID})
+\strong{Maintainer}: Anonymous Author \email{anonymous@example.com} (\href{https://orcid.org/0000-0000-0000-0000}{ORCID})
 
 }
 \keyword{internal}
