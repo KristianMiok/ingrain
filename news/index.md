@@ -8,24 +8,24 @@ First complete release.
   <doi:10.15468/dd.d9xgfc>, crediting all 246 contributing datasets;
   per-dataset counts in `data-raw/crayfish_derived_dataset_counts.csv`.
 
-- [`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md):
+- [`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md):
   four-state resolution-relative partition of occurrence records (inert
   / marginal / actionable / unreported), boundary-exact to the
   cumulative-threshold construction used in the analysis pipeline, with
   [`print()`](https://rdrr.io/r/base/print.html) and
   [`summary()`](https://rdrr.io/r/base/summary.html) methods.
 
-- [`ingrain_profile()`](https://kristianmiok.github.io/ingrain/reference/ingrain_profile.md):
+- [`ingrain_profile()`](https://anonymous.github.io/ingrain/reference/ingrain_profile.md):
   the partition across a sweep of analysis grains, with an optional
   marked grain, sharing one internal classifier with
-  [`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md)
+  [`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md)
   so the two views cannot diverge.
 
-- [`by_dataset()`](https://kristianmiok.github.io/ingrain/reference/by_dataset.md):
+- [`by_dataset()`](https://anonymous.github.io/ingrain/reference/by_dataset.md):
   the partition per publishing dataset, with a diagnostic share of
   GBIF-documented geocoder default radii.
 
-- [`ingrain_u()`](https://kristianmiok.github.io/ingrain/reference/ingrain_u.md):
+- [`ingrain_u()`](https://anonymous.github.io/ingrain/reference/ingrain_u.md):
   uncertainty coefficient (Theil’s U) of the state given the dataset,
   with a label-permutation null; collapses exactly to the binary
   estimator used in the analyses behind the package.
@@ -40,8 +40,8 @@ First complete release.
 - Visual identity: partition-bar, profile and per-dataset
   [`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
   methods,
-  [`theme_ingrain()`](https://kristianmiok.github.io/ingrain/reference/theme_ingrain.md),
+  [`theme_ingrain()`](https://anonymous.github.io/ingrain/reference/theme_ingrain.md),
   the colour-vision-safe
-  [`ingrain_palette()`](https://kristianmiok.github.io/ingrain/reference/ingrain_palette.md),
+  [`ingrain_palette()`](https://anonymous.github.io/ingrain/reference/ingrain_palette.md),
   hex logo, and the pkgdown site at
-  <https://kristianmiok.github.io/ingrain>.
+  <https://anonymous.github.io/ingrain>.

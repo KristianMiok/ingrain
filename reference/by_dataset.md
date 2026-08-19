@@ -1,7 +1,7 @@
 # Partition of an ingrain audit by publishing dataset
 
 Aggregates the four-state partition of
-[`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md)
+[`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md)
 per dataset, returning one row per dataset with its record count and the
 share of records in each state. The column `default_radius` reports the
 share of records whose radius is one of the four GBIF-documented
@@ -20,7 +20,7 @@ by_dataset(object, dataset = "datasetKey", min_n = 1L)
 - object:
 
   An `ingrain_audit` object from
-  [`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md).
+  [`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md).
 
 - dataset:
 
@@ -41,7 +41,7 @@ and `default_radius`. The grain, the total record and dataset counts and
 
 ## See also
 
-[`ingrain_u()`](https://kristianmiok.github.io/ingrain/reference/ingrain_u.md)
+[`ingrain_u()`](https://anonymous.github.io/ingrain/reference/ingrain_u.md)
 for how much the dataset determines the state.
 
 ## Examples

@@ -1,7 +1,7 @@
 # Partition of occurrence records across a sweep of analysis grains
 
 Computes the four-state partition of
-[`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md)
+[`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md)
 at every grain in a sweep, showing how the split between `inert`,
 `marginal`, `actionable` and `unreported` records shifts with the
 resolution of the intended analysis. The `unreported` share is constant
@@ -52,7 +52,7 @@ attributes.
 
 ## See also
 
-[`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md)
+[`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md)
 for the audit at a single grain.
 
 ## Examples

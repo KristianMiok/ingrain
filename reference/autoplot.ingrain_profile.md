@@ -18,7 +18,7 @@ autoplot(object, ...)
 - object:
 
   An `ingrain_profile` object from
-  [`ingrain_profile()`](https://kristianmiok.github.io/ingrain/reference/ingrain_profile.md).
+  [`ingrain_profile()`](https://anonymous.github.io/ingrain/reference/ingrain_profile.md).
 
 - ...:
 

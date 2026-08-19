@@ -16,7 +16,7 @@ autoplot(object, max_datasets = 25, ...)
 - object:
 
   An `ingrain_datasets` object from
-  [`by_dataset()`](https://kristianmiok.github.io/ingrain/reference/by_dataset.md).
+  [`by_dataset()`](https://anonymous.github.io/ingrain/reference/by_dataset.md).
 
 - max_datasets:
 
