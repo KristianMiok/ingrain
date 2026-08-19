@@ -1,6 +1,6 @@
-# ingrain <a href="https://kristianmiok.github.io/ingrain/"><img src="man/figures/logo.png" align="right" height="139" alt="ingrain website" /></a>
+# ingrain <a href="https://anonymous.github.io/ingrain/"><img src="man/figures/logo.png" align="right" height="139" alt="ingrain website" /></a>
 
-[![R-CMD-check](https://github.com/KristianMiok/ingrain/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/KristianMiok/ingrain/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/anonymous/ingrain/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/anonymous/ingrain/actions/workflows/R-CMD-check.yaml)
 
 Which of your occurrence records can a positional-uncertainty correction
 actually touch -- at *your* analysis resolution?
@@ -26,7 +26,7 @@ coordinate cleaning (e.g. CoordinateCleaner, bdc) and before modelling.
 
 ```r
 # install.packages("remotes")
-remotes::install_github("KristianMiok/ingrain")
+remotes::install_github("anonymous/ingrain")
 ```
 
 ## Quick start
