@@ -2,8 +2,8 @@ Package: ingrain
 Title: Resolution-Relative Audit of Positional Uncertainty for Occurrence Records
 Version: 0.1.0
 Authors@R: 
-    person("Anonymous", "Author", , "anonymous@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0000-0000-0000"))
+    person("Kristian", "Miok", , "kristianmiok.personal@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0009-7380-9525"))
 Description: Classifies species occurrence records into four states relative to a chosen analysis grain (the raster cell edge length): 'inert' (positional uncertainty at or below half the grain, so uncertainty-aware corrections cannot act), 'marginal' (uncertainty between half the grain and three times the grain), 'actionable' (uncertainty above three times the grain, where the choice of correction method has consequences), and 'unreported' (no uncertainty radius given, so no correction can act). Provides per-dataset summaries and visualisations for auditing 'GBIF' downloads before species distribution modelling.
 License: GPL (>= 3)
 Encoding: UTF-8
@@ -20,5 +20,5 @@ Depends:
 Imports: 
     ggplot2
 VignetteBuilder: knitr
-URL: https://anonymous.github.io/ingrain/, https://github.com/anonymous/ingrain
-BugReports: https://github.com/anonymous/ingrain/issues
+URL: https://kristianmiok.github.io/ingrain/, https://github.com/KristianMiok/ingrain
+BugReports: https://github.com/KristianMiok/ingrain/issues
