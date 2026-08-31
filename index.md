@@ -1,6 +1,6 @@
 # ingrain
 
-[![R-CMD-check](https://github.com/anonymous/ingrain/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/anonymous/ingrain/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/KristianMiok/ingrain/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/KristianMiok/ingrain/actions/workflows/R-CMD-check.yaml)
 
 Which of your occurrence records can a positional-uncertainty correction
 actually touch – at *your* analysis resolution?
@@ -27,7 +27,7 @@ coordinate cleaning (e.g. CoordinateCleaner, bdc) and before modelling.
 ``` r
 
 # install.packages("remotes")
-remotes::install_github("anonymous/ingrain")
+remotes::install_github("KristianMiok/ingrain")
 ```
 
 ## Quick start
@@ -82,7 +82,7 @@ a single state
 
 Most datasets sit almost entirely in one state – publishers occupy
 regimes, not a gradient – and
-[`ingrain_u()`](https://anonymous.github.io/ingrain/reference/ingrain_u.md)
+[`ingrain_u()`](https://kristianmiok.github.io/ingrain/reference/ingrain_u.md)
 quantifies how much the dataset determines a record’s state: the
 uncertainty coefficient of the state given the dataset, read against a
 permutation null.

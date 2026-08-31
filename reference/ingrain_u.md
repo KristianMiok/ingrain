@@ -25,7 +25,7 @@ ingrain_u(object, dataset = "datasetKey", B = 200, seed = NULL, min_n = 1L)
 - object:
 
   An `ingrain_audit` object from
-  [`ingrain()`](https://anonymous.github.io/ingrain/reference/ingrain.md).
+  [`ingrain()`](https://kristianmiok.github.io/ingrain/reference/ingrain.md).
 
 - dataset:
 

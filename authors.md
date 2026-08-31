@@ -2,22 +2,22 @@
 
 ## Authors
 
-- **Anonymous Author**. Author, maintainer.
-  [](https://orcid.org/0000-0000-0000-0000)
+- **Kristian Miok**. Author, maintainer.
+  [](https://orcid.org/0009-0009-7380-9525)
 
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/anonymous/ingrain/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/KristianMiok/ingrain/blob/main/DESCRIPTION)
 
-Author A (2026). *ingrain: Resolution-Relative Audit of Positional
+Miok K (2026). *ingrain: Resolution-Relative Audit of Positional
 Uncertainty for Occurrence Records*. R package version 0.1.0,
-<https://anonymous.github.io/ingrain/>.
+<https://kristianmiok.github.io/ingrain/>.
 
     @Manual{,
       title = {ingrain: Resolution-Relative Audit of Positional Uncertainty for Occurrence Records},
-      author = {Anonymous Author},
+      author = {Kristian Miok},
       year = {2026},
       note = {R package version 0.1.0},
-      url = {https://anonymous.github.io/ingrain/},
+      url = {https://kristianmiok.github.io/ingrain/},
     }

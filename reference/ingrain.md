@@ -81,7 +81,7 @@ Evolution*, 8, 1566–1573.
 
 ## See also
 
-[`ingrain_profile()`](https://anonymous.github.io/ingrain/reference/ingrain_profile.md)
+[`ingrain_profile()`](https://kristianmiok.github.io/ingrain/reference/ingrain_profile.md)
 for the partition across a sweep of grains.
 
 ## Examples

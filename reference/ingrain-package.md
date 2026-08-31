@@ -14,13 +14,13 @@ downloads before species distribution modelling.
 
 Useful links:
 
-- <https://anonymous.github.io/ingrain/>
+- <https://kristianmiok.github.io/ingrain/>
 
-- <https://github.com/anonymous/ingrain>
+- <https://github.com/KristianMiok/ingrain>
 
-- Report bugs at <https://github.com/anonymous/ingrain/issues>
+- Report bugs at <https://github.com/KristianMiok/ingrain/issues>
 
 ## Author
 
-**Maintainer**: Anonymous Author <anonymous@example.com>
-([ORCID](https://orcid.org/0000-0000-0000-0000))
+**Maintainer**: Kristian Miok <kristianmiok.personal@gmail.com>
+([ORCID](https://orcid.org/0009-0009-7380-9525))
