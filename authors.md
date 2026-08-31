@@ -11,13 +11,13 @@ Source:
 [`DESCRIPTION`](https://github.com/KristianMiok/ingrain/blob/main/DESCRIPTION)
 
 Miok K (2026). *ingrain: Resolution-Relative Audit of Positional
-Uncertainty for Occurrence Records*. R package version 0.1.0,
+Uncertainty for Occurrence Records*. R package version 1.0.0,
 <https://kristianmiok.github.io/ingrain/>.
 
     @Manual{,
       title = {ingrain: Resolution-Relative Audit of Positional Uncertainty for Occurrence Records},
       author = {Kristian Miok},
       year = {2026},
-      note = {R package version 0.1.0},
+      note = {R package version 1.0.0},
       url = {https://kristianmiok.github.io/ingrain/},
     }

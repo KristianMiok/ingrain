@@ -1,5 +1,13 @@
 # Changelog
 
+## ingrain 1.0.0
+
+- First stable release. The four-state classification and the cutpoints
+  R/2 and 3R are frozen; regression tests assert the exact partition of
+  the bundled sample and the value of Theil’s uncertainty coefficient.
+- No user-facing changes from 0.1.0. The version increment marks the API
+  as stable for citation and for the accompanying paper.
+
 ## ingrain 0.1.0
 
 First complete release.
